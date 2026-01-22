@@ -1,0 +1,180 @@
+how can i send my girlfriend this and she can see it also on her phone?                    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Valentine 💘</title>
+
+  <!-- Cute font -->
+  <link href="https://eur03.safelinks.protection.outlook.com/?url=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DPacifico%26family%3DPoppins%3Awght%40400%3B600%26display%3Dswap&data=05%7C02%7CC.J.F.M.N.Gonet%40student.hhs.nl%7C60a9c8b0949c44fe184708de59f046ed%7Ca2586b9bf8674b3c93635b435c5dbc45%7C0%7C0%7C639047085682791730%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=0kWPV8msxzYoiqIcapLZ%2FUlAWl%2FlzOUBarIUwCCEVzA%3D&reserved=0" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffd6e8, #ffeef6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Poppins", sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(255, 105, 180, 0.25);
+      max-width: 400px;
+      width: 90%;
+      animation: popIn 0.8s ease;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    h1 {
+      font-family: "Pacifico", cursive;
+      color: #ff5fa2;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      position: relative;
+    }
+
+    button {
+      border: none;
+      border-radius: 12px;
+      padding: 12px 22px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yes {
+      background: #ff5fa2;
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 10px 20px rgba(255, 95, 162, 0.4);
+    }
+
+    #yes:hover {
+      transform: scale(1.1);
+    }
+
+    #no {
+      background: #f1f1f1;
+      color: #555;
+      position: relative;
+    }
+
+    /* floating hearts */
+    .heart {
+      position: absolute;
+      color: #ff5fa2;
+      font-size: 20px;
+      animation: floatUp 4s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-800px) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Maxima 💖</h1>
+    <p>Will you be my Valentine?</p>
+
+    <div class="buttons">
+      <button id="yes">Yes 💕</button>
+      <button id="no">No 😐</button>
+    </div>
+  </div>
+
+  <script>
+    const noButton = document.getElementById("no");
+    const yesButton = document.getElementById("yes");
+
+    const messages = [
+      "No 😐",
+      "Are you sure?",
+      "Think again 🥺",
+      "That hurts 😭",
+      "Please??? 💔",
+      "I’m gonna cry",
+      "Okay wow 😢"
+    ];
+
+    let messageIndex = 0;
+
+    noButton.addEventListener("mouseover", () => {
+      // Move NO button randomly
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      noButton.style.transform = `translate(${x}px, ${y}px)`;
+
+      // Change text
+      noButton.textContent = messages[messageIndex];
+      messageIndex = (messageIndex + 1) % messages.length;
+
+      // Grow YES button
+      const currentSize = window.getComputedStyle(yesButton).fontSize;
+      const newSize = parseFloat(currentSize) + 4;
+      yesButton.style.fontSize = newSize + "px";
+    });
+
+    yesButton.addEventListener("click", () => {
+      document.body.innerHTML = `
+        <div class="card">
+          <h1>YAY!!! 💕</h1>
+          <p>See you on Valentine’s Day, Maxima 💘</p>
+        </div>
+      `;
+      startHearts();
+    });
+
+    function startHearts() {
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.textContent = "💖";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.bottom = "0px";
+        heart.style.fontSize = Math.random() * 20 + 20 + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 4000);
+      }, 300);
+    }
+  </script>
+
+</body>
+</html>
